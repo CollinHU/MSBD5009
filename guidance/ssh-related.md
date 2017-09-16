@@ -1,3 +1,25 @@
+### ssh-public-key-gen
+
+check out [this github tutorial](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+
+explanation: this command generate ssh-keys public-key `~/.ssh/id_rsa.pub` and private-key `~/.ssh/id_rsa` for authentifications.
+
+### ssh-copy-id
+
+my-example, please replace `msbd5009stu25@csl2wk01.cse.ust.hk` with `your_account@domain_name`, after copying, you do not need to type in passwd anymore for your current local machine.
+
+```zsh
+ssh-copy-id  msbd5009stu25@csl2wk01.cse.ust.hk
+```
+
+explanation: this command append your local `~/.ssh/id_rsa.pub` to the server `~/.ssh/authorized_keys` file
+
+### ssh login to server tcsh
+
+```zsh
+ssh your_account@domain_name
+```
+
 ### scp usage
 
 copy your local files to server
