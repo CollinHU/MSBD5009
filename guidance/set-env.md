@@ -1,3 +1,9 @@
+### attention
+
+each user only have `100MB` for our home directory
+
+you may need to put large files into `/tmp`, memory file system, but the data will be lost after reboot, which is done per day. you can make a directory to separate your files with others, e.g, `mkdir -p /tmp/yche`.
+
 ### add search path for executable
 
 add `setenv PATH "${PATH}:/usr/local/software/openmpi/bin"` to your server file `~/.cshrc`, in order to let your shell environment able to find `mpicc` and `mpic++`
@@ -12,4 +18,14 @@ after append, you can check as follows to see whether `/usr/local/software/openm
 
 ```tcsh
 echo $PATH
+```
+
+check if `mpicc` and `mpic++` work
+
+```tcsh
+mpicc
+```
+
+```tcsh
+mpic++
 ```
