@@ -6,3 +6,7 @@ MSBD5009 Tutorial Materials
 
 * [set your environment](./guidance/set-env.md)
 * [ssh-related](./guidance/ssh-related.md)
+
+## Tutorial
+
+* [dijstra algorithm](tutorial/dijstra.md)
