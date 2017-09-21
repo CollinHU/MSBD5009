@@ -1,53 +1,37 @@
-from dijstra_algorithm import get_edge_list_tuple
-
-inf = 999999
+from bellman_ford_algorithm import *
 
 
-def get_edge_offset(src_v, dst_v, n):
-    return src_v * n + dst_v
-
-
-def get_weight_matrix(file_path='toy_graph_edge_list_negative_weight.txt'):
-    edge_list = get_edge_list_tuple(file_path)
-    max_id = -1
-    for src, dst, weight in edge_list:
-        max_id = max(max_id, src, dst)
-    n = max_id + 1
-
-    # matrix: adjacency and weight, dist: distance from single source vertex
-    matrix = [inf] * (n * n)
-
-    for src, dst, weight in edge_list:
-        matrix[get_edge_offset(src, dst, n)] = weight
-
-    return matrix, n
-
-
-# bellman-ford algorithm
-def sssp_bellman_ford(src_vertex, matrix, n):
+def sssp_spfa(src_vertex, matrix, n):
     dist = [inf] * n
-    prev = [None] * n
-
     dist[src_vertex] = 0
-    # iteration num
-    for i in xrange(n - 1):
-        is_change = False
-        # iterate through all edges to check relaxation
-        for u in xrange(n):
+
+    prev = [None] * n
+    visit = [0] * n
+
+    check_vertex_lst = []
+    queue = [src_vertex]
+    while len(queue) > 0:
+        u = queue.pop(0)
+        visit[u] += 1
+        check_vertex_lst.append(u)
+
+        # check if you visited the same node at least |V| times
+        if visit[u] < n:
+            # iterate through all edges to check relaxation
             for v in xrange(n):
                 # if edge exists
                 weight = matrix[get_edge_offset(u, v, n)]
                 if weight != inf:
                     if dist[u] + weight < dist[v]:
                         dist[v] = dist[u] + weight
-                        is_change = True
                         prev[v] = {u}
+                        queue.append(v)
+                        if visit[v] >= n:
+                            return dist, prev, True
                     if dist[u] + weight == dist[v]:
                         prev[v].add(u)
-        print ' '.join(['after iter', str(i), ', dist array:', str(dist)])
-        if not is_change:
-            return dist, prev, False
 
+    print 'checked vertex list:', check_vertex_lst
     # if relaxation happens then there must be a negative-cycle
     for u in xrange(n):
         for v in xrange(n):
@@ -57,14 +41,13 @@ def sssp_bellman_ford(src_vertex, matrix, n):
                 if dist[u] + weight < dist[v]:
                     print 'has negative cycle'
                     return dist, prev, True
-
     return dist, prev, False
 
 
 def demo(file_path, src_vertex=0):
     matrix, n = get_weight_matrix(file_path)
 
-    dist, prev, has_negative_cycle = sssp_bellman_ford(src_vertex, matrix, n)
+    dist, prev, has_negative_cycle = sssp_spfa(src_vertex, matrix, n)
     print 'shortest distance from src:', dist
     print 'vertex and its prev:', zip(range(n), prev)
     print 'has negative cycle:', has_negative_cycle

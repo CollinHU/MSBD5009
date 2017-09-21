@@ -19,6 +19,7 @@ def sssp_dijstra(src, graph):
     # step 2: is_mark
     is_mark = [False] * n
 
+
 if __name__ == '__main__':
     toy_graph = nx.DiGraph()
     toy_graph.add_weighted_edges_from(get_edge_list_tuple('toy_graph_edge_list.txt'))
