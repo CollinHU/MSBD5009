@@ -24,12 +24,12 @@ In order to speedup your algorithm based on bellman-ford algorithm, you need to 
 
 * [dijstra algorithm](tutorial/dijstra.md), not used in our assignments
 * [bellman-ford algorithm](tutorial/bellman-ford.md), used in our assignments
-* [spfa](tutorial/spfa.md), i.e, Shortest-Path-Faster-Algorithm, bellman-ford with more pruning
+* [spfa](tutorial/spfa.md), i.e, Shortest-Path-Faster-Algorithm, bellman-ford with more pruning, two-queue-based iterative design
 
 You can have a look at python demo codes for better understanding.
 
 algorithm | link
 --- | ---
 bellman-ford algorithm | [bellman-ford algorithm](python_playground/bellman_ford_algorithm.py)
-spfa: bellman-ford with pruning | [spfa](python_playground/shortest_path_fast_algorithm.py)
+spfa: bellman-ford with pruning | [spfa-with-two-queues](python_playground/spfa_explicit_iteration_num.py)
 dijstra with heap and w/o heap| [dijstra algorithm](python_playground/dijstra_algorithm.py)

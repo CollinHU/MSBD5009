@@ -8,9 +8,11 @@ def sssp_spfa(src_vertex, matrix, n):
     visit = [0] * n
 
     check_vertex_lst = []
-    queue = [src_vertex]
+
+    # have to be a set, because visit[u]'s condition depends on it
+    queue = {src_vertex}
     while len(queue) > 0:
-        u = queue.pop(0)
+        u = queue.pop()
         visit[u] += 1
         check_vertex_lst.append(u)
 
@@ -24,7 +26,7 @@ def sssp_spfa(src_vertex, matrix, n):
                     if dist[u] + weight < dist[v]:
                         dist[v] = dist[u] + weight
                         prev[v] = {u}
-                        queue.append(v)
+                        queue.add(v)
                     if dist[u] + weight == dist[v]:
                         prev[v].add(u)
 
