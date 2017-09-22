@@ -1,4 +1,3 @@
-import networkx as nx
 from fibonacci_heap import FibonacciHeap
 from bellman_ford_algorithm import *
 
@@ -67,7 +66,6 @@ def sssp_dijstra_with_heap(src_vertex, matrix, n):
 def sssp_dijstra_without_heap(src_vertex, matrix, n):
     dist = [inf] * n
     dist[src_vertex] = 0
-
     prev = [None] * n
     is_mark = [False] * n
 

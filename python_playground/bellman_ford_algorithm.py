@@ -30,9 +30,9 @@ def get_weight_matrix(file_path='toy_graph_edge_list_negative_weight.txt'):
 # bellman-ford algorithm
 def sssp_bellman_ford(src_vertex, matrix, n):
     dist = [inf] * n
+    dist[src_vertex] = 0
     prev = [None] * n
 
-    dist[src_vertex] = 0
     # iteration num
     for i in xrange(n - 1):
         is_change = False

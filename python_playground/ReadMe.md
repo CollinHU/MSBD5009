@@ -1,4 +1,4 @@
-## Two Toy Graphs
+## Three Toy Graphs
 
 no negative weight
 
@@ -86,6 +86,36 @@ checked vertex list: [0, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1]
 has negative cycle
 shortest distance from src: [0, 4, 8, 7]
 vertex and its prev: [(0, None), (1, set([3])), (2, set([1])), (3, set([2]))]
+has negative cycle: True
+```
+
+### SPFA Explicit Iteration
+
+```
+after iter 0 , dist array: [0, 10, 999999, 999999, 999999, 8]
+after iter 1 , dist array: [0, 10, 999999, 12, 9, 8]
+after iter 2 , dist array: [0, 10, 14, 10, 9, 8]
+after iter 3 , dist array: [0, 10, 12, 10, 9, 8]
+after iter 4 , dist array: [0, 10, 12, 10, 9, 8]
+shortest distance from src: [0, 10, 12, 10, 9, 8]
+vertex and its prev: [(0, None), (1, set([0])), (2, set([3])), (3, set([4])), (4, set([5])), (5, set([0]))]
+has negative cycle: False
+------------------------------
+after iter 0 , dist array: [0, 10, 999999, 999999, 999999, 8]
+after iter 1 , dist array: [0, 10, 999999, 12, 9, 8]
+after iter 2 , dist array: [0, 5, 10, 8, 9, 8]
+after iter 3 , dist array: [0, 5, 5, 7, 9, 8]
+after iter 4 , dist array: [0, 5, 5, 7, 9, 8]
+shortest distance from src: [0, 5, 5, 7, 9, 8]
+vertex and its prev: [(0, None), (1, set([4])), (2, set([3])), (3, set([1])), (4, set([5])), (5, set([0]))]
+has negative cycle: False
+------------------------------
+after iter 0 , dist array: [0, 10, 999999, 999999]
+after iter 1 , dist array: [0, 10, 12, 999999]
+after iter 2 , dist array: [0, 10, 12, 11]
+has negative cycle
+shortest distance from src: [0, 10, 12, 11]
+vertex and its prev: [(0, None), (1, set([0])), (2, set([1])), (3, set([2]))]
 has negative cycle: True
 ```
 
