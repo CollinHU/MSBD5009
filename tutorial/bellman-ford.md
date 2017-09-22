@@ -19,9 +19,9 @@ see [bellman_ford_algorithm.py](../python_playground/bellman_ford_algorithm.py)
 ```python
 def sssp_bellman_ford(src_vertex, matrix, n):
     dist = [inf] * n
+    dist[src_vertex] = 0
     prev = [None] * n
 
-    dist[src_vertex] = 0
     # iteration num
     for i in xrange(n - 1):
         is_change = False
