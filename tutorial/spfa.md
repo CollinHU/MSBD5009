@@ -4,11 +4,11 @@
 
 * detecting negative cycle, see this [link](https://stackoverflow.com/questions/18007979/detecting-negative-cycles-using-spfa-algorithm).
 
-* in parallel implementation, hash-set based queue can be replaced with bool array
+* in parallel implementation, these two hash-set based queues `queue_cur`, `queue_next` can be replaced with bool array
 
 ### Code Gist
 
-see [shortest_path_fast_algorithm.py](../python_playground/spfa_explicit_iteration_num.py)
+see [spfa_explicit_iteration_num.py](../python_playground/spfa_explicit_iteration_num.py)
 
 ```python
 def sssp_spfa(src_vertex, matrix, n):
