@@ -62,6 +62,7 @@ class FibonacciHeap:
         if self.min_node is None or n.data < self.min_node.data:
             self.min_node = n
         self.total_nodes += 1
+        return n
 
     # modify the data of some node in the heap in O(1) time
     def decrease_key(self, x, k):

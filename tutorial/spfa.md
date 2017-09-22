@@ -34,8 +34,6 @@ def sssp_spfa(src_vertex, matrix, n):
                         dist[v] = dist[u] + weight
                         prev[v] = {u}
                         queue.append(v)
-                        if visit[v] >= n:
-                            return dist, prev, True
                     if dist[u] + weight == dist[v]:
                         prev[v].add(u)
 
