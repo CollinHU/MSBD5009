@@ -54,6 +54,8 @@ def demo(file_path, src_vertex=0):
 
 
 if __name__ == '__main__':
+    demo(file_path='toy_graph_edge_list.txt')
+    print ''.join(['---'] * 10)
     demo(file_path='toy_graph_edge_list_negative_weight.txt')
     print ''.join(['---'] * 10)
     demo(file_path='toy_graph_negative_cycle.txt')

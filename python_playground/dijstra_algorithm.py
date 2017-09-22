@@ -1,23 +1,19 @@
 import networkx as nx
-import heapq
+from fibonacci_heap import FibonacciHeap
+from bellman_ford_algorithm import *
 
-inf = 999999
+#
+# def sssp_dijstra_with_heap(src):
+#     n = (max(toy_graph.nodes()) + 1)
+#     # step 1: init dist
+#     dist = [inf] * n
+#     dist[src] = 0
+#
+#     # step 2: is_mark
+#     is_mark = [False] * n
 
 
-def get_edge_list_tuple(file_path):
-    with open(file_path) as ifs:
-        return map(lambda my_line: map(int, my_line.strip().split()),
-                   filter(lambda line: '#' not in line, ifs.readlines()))
-
-
-def sssp_dijstra(src, graph):
-    n = (max(toy_graph.nodes()) + 1)
-    # step 1: init dist
-    dist = [inf] * n
-    dist[src] = 0
-
-    # step 2: is_mark
-    is_mark = [False] * n
+# def sssp_dijstra_without_heap_for_dense_graph(src, matrix, n):
 
 
 if __name__ == '__main__':
@@ -27,3 +23,4 @@ if __name__ == '__main__':
         print src, dst, toy_graph.edge[src][dst]['weight']
 
     lst = [3, 4, -1]
+

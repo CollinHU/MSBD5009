@@ -1,6 +1,10 @@
-from dijstra_algorithm import get_edge_list_tuple
-
 inf = 999999
+
+
+def get_edge_list_tuple(file_path):
+    with open(file_path) as ifs:
+        return map(lambda my_line: map(int, my_line.strip().split()),
+                   filter(lambda line: '#' not in line, ifs.readlines()))
 
 
 def get_edge_offset(src_v, dst_v, n):
@@ -71,6 +75,8 @@ def demo(file_path, src_vertex=0):
 
 
 if __name__ == '__main__':
+    demo(file_path='toy_graph_edge_list.txt')
+    print ''.join(['---'] * 10)
     demo(file_path='toy_graph_edge_list_negative_weight.txt')
     print ''.join(['---'] * 10)
     demo(file_path='toy_graph_negative_cycle.txt')
